@@ -1,36 +1,19 @@
-<!DOCTYPE html>
-<html lang="el"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Αντιστοίχιση</title><style>
-body{font-family:Arial,sans-serif;background:#eef4ff;margin:0;padding:20px}
-main{max-width:900px;margin:auto;background:white;padding:25px;border-radius:20px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
-h1{color:#0b3d91}.row{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:12px 0;align-items:center}
-select{padding:12px;border-radius:10px;font-size:1rem}button{background:#0b3d91;color:white;border:none;padding:12px 18px;border-radius:10px;font-weight:bold}.back{color:#0b3d91;font-weight:bold;text-decoration:none}
-</style></head><body><main>
-<a class="back" href="index.html">← Επιστροφή</a>
-<h1>🔗 Παιχνίδι Αντιστοίχισης</h1>
-<p>Διάλεξε τον σωστό κανόνα για κάθε έννοια.</p>
-<div id="area"></div>
-<button onclick="check()">Έλεγχος απαντήσεων</button>
-<h2 id="result"></h2>
-</main>
-<script>
-const pairs=[
-['Ισχυρός κωδικός','Χρησιμοποιώ γράμματα, αριθμούς και σύμβολα.'],
-['Προσωπικά δεδομένα','Δεν δημοσιεύω διεύθυνση και τηλέφωνο.'],
-['Cyberbullying','Ζητώ βοήθεια από ενήλικα.'],
-['Ψεύτικη πληροφορία','Ελέγχω την πηγή πριν πιστέψω ή κοινοποιήσω.'],
-['Τεχνητή νοημοσύνη','Ελέγχω την απάντηση και δεν αντιγράφω άκριτα.']
-];
-const options=pairs.map(p=>p[1]).sort(()=>Math.random()-.5);
-const area=document.getElementById('area');
-pairs.forEach((p,i)=>{
-let div=document.createElement('div');div.className='row';
-div.innerHTML=`<b>${p[0]}</b><select id="s${i}"><option value="">Διάλεξε...</option>${options.map(o=>`<option>${o}</option>`).join('')}</select>`;
-area.appendChild(div);
-});
-function check(){
-let score=0;
-pairs.forEach((p,i)=>{if(document.getElementById('s'+i).value===p[1])score++;});
-document.getElementById('result').textContent=`Σωστές απαντήσεις: ${score}/${pairs.length}`;
-}
+<!DOCTYPE html><html lang="el"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Αντιστοίχιση</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef4ff,#ffffff);color:#1f2937}
+header{background:linear-gradient(135deg,#0f172a,#0b3d91,#2563eb);color:white;text-align:center;padding:42px 18px}
+h1{margin:0;font-size:2.2rem}header p{font-size:1.1rem;max-width:850px;margin:12px auto}
+main{max-width:1100px;margin:auto;padding:28px 18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:white;border-radius:22px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.12);margin-bottom:18px}
+.card:hover{transform:translateY(-3px);transition:.2s}.card h2,.card h3{color:#0b3d91;margin-top:0}
+.button,button{display:inline-block;background:#0b3d91;color:white;border:0;padding:12px 18px;border-radius:14px;font-weight:bold;text-decoration:none;cursor:pointer;font-size:1rem;margin:4px}
+.green{background:#059669}.purple{background:#7c3aed}.pink{background:#db2777}
+.back{display:inline-block;margin-bottom:18px;color:#0b3d91;font-weight:bold;text-decoration:none}.badge{display:inline-block;background:#eef2ff;color:#3730a3;padding:10px 14px;border-radius:999px;font-weight:bold;margin:6px}
+.feedback{font-weight:bold;margin-top:8px}.hidden{display:none}footer{text-align:center;background:#0f172a;color:white;padding:22px;margin-top:20px}
+input,select{padding:12px;border-radius:12px;border:1px solid #bfdbfe;font-size:1rem;width:100%;max-width:520px}
+video{width:100%;max-width:850px;border-radius:20px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.row{display:grid;grid-template-columns:1fr 1.5fr;gap:14px;margin:12px 0;align-items:center}</style></head><body><header><h1>🔗 Παιχνίδι Αντιστοίχισης</h1><p>Ταιριάζουμε έννοιες με σωστούς κανόνες.</p></header><main><a class="back" href="index.html">← Επιστροφή</a><section class="card"><div id="area"></div><button onclick="check()">Έλεγχος απαντήσεων</button><h2 id="result"></h2></section></main><script>
+const pairs=[['Ισχυρός κωδικός','Χρησιμοποιώ γράμματα, αριθμούς και σύμβολα.'],['Προσωπικά δεδομένα','Δεν δημοσιεύω διεύθυνση και τηλέφωνο.'],['Cyberbullying','Ζητώ βοήθεια από ενήλικα και κρατώ αποδείξεις.'],['Ψεύτικη πληροφορία','Ελέγχω την πηγή πριν πιστέψω ή κοινοποιήσω.'],['Τεχνητή νοημοσύνη','Ελέγχω την απάντηση και δεν αντιγράφω άκριτα.'],['Ύποπτο link','Δεν το ανοίγω και ελέγχω τον αποστολέα.']];
+const options=pairs.map(p=>p[1]).sort(()=>Math.random()-.5);const area=document.getElementById('area');
+pairs.forEach((p,i)=>{let div=document.createElement('div');div.className='row';div.innerHTML='<b>'+p[0]+'</b><select id="s'+i+'"><option value="">Διάλεξε...</option>'+options.map(o=>'<option>'+o+'</option>').join('')+'</select>';area.appendChild(div);});
+function check(){let score=0;pairs.forEach((p,i)=>{if(document.getElementById('s'+i).value===p[1])score++;});document.getElementById('result').innerHTML='Σωστές απαντήσεις: '+score+'/'+pairs.length+(score===pairs.length?' <span class="badge">🏆 Άριστη αντιστοίχιση</span>':'');}
 </script></body></html>

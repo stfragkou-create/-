@@ -1,30 +1,18 @@
-<!DOCTYPE html>
-<html lang="el"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Τι κάνω;</title><style>
-body{font-family:Arial,sans-serif;background:#f4f7fb;margin:0;padding:20px}
-main{max-width:850px;margin:auto;background:white;padding:25px;border-radius:20px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
-h1{color:#0b3d91}.case{border:2px solid #e5e7eb;border-radius:16px;padding:18px;margin:16px 0;background:#fbfdff}
-button{display:block;width:100%;text-align:left;background:#eef4ff;color:#111;border:1px solid #c7d2fe;padding:12px;border-radius:10px;margin:8px 0;cursor:pointer;font-size:1rem}.feedback{font-weight:bold;margin-top:10px}.back{color:#0b3d91;font-weight:bold;text-decoration:none}
-</style></head><body><main>
-<a class="back" href="index.html">← Επιστροφή</a>
-<h1>🎮 Τι κάνω στο διαδίκτυο;</h1>
-<div id="cases"></div>
-</main>
-<script>
-const cases=[
-{q:'Λαμβάνεις μήνυμα από άγνωστο με link για “δωρεάν δώρο”.',a:['Το ανοίγω αμέσως.','Δεν το ανοίγω και ενημερώνω ενήλικα.','Το στέλνω και σε φίλους.'],c:1},
-{q:'Ένας συμμαθητής δέχεται κοροϊδία σε ομαδική συνομιλία.',a:['Συμμετέχω για πλάκα.','Το αγνοώ τελείως.','Δεν συμμετέχω και ζητώ βοήθεια από ενήλικα.'],c:2},
-{q:'Θέλω να χρησιμοποιήσω AI για εργασία.',a:['Αντιγράφω ό,τι γράψει.','Το χρησιμοποιώ ως βοήθεια και ελέγχω τις πληροφορίες.','Βάζω προσωπικά στοιχεία μαθητών.'],c:1}
-];
-const box=document.getElementById('cases');
-cases.forEach((x,i)=>{
-let div=document.createElement('div');div.className='case';
-div.innerHTML=`<h2>${i+1}. ${x.q}</h2>` + x.a.map((ans,j)=>`<button onclick="choose(${i},${j},this)">${ans}</button>`).join('') + `<div class="feedback" id="f${i}"></div>`;
-box.appendChild(div);
-});
-function choose(i,j,btn){
-let f=document.getElementById('f'+i);
-if(j===cases[i].c){f.textContent='Σωστή επιλογή! ✅';f.style.color='green'}
-else{f.textContent='Πρόσεξε! Υπάρχει πιο ασφαλής επιλογή. ❌';f.style.color='crimson'}
-}
+<!DOCTYPE html><html lang="el"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Τι κάνω;</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef4ff,#ffffff);color:#1f2937}
+header{background:linear-gradient(135deg,#0f172a,#0b3d91,#2563eb);color:white;text-align:center;padding:42px 18px}
+h1{margin:0;font-size:2.2rem}header p{font-size:1.1rem;max-width:850px;margin:12px auto}
+main{max-width:1100px;margin:auto;padding:28px 18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:white;border-radius:22px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.12);margin-bottom:18px}
+.card:hover{transform:translateY(-3px);transition:.2s}.card h2,.card h3{color:#0b3d91;margin-top:0}
+.button,button{display:inline-block;background:#0b3d91;color:white;border:0;padding:12px 18px;border-radius:14px;font-weight:bold;text-decoration:none;cursor:pointer;font-size:1rem;margin:4px}
+.green{background:#059669}.purple{background:#7c3aed}.pink{background:#db2777}
+.back{display:inline-block;margin-bottom:18px;color:#0b3d91;font-weight:bold;text-decoration:none}.badge{display:inline-block;background:#eef2ff;color:#3730a3;padding:10px 14px;border-radius:999px;font-weight:bold;margin:6px}
+.feedback{font-weight:bold;margin-top:8px}.hidden{display:none}footer{text-align:center;background:#0f172a;color:white;padding:22px;margin-top:20px}
+input,select{padding:12px;border-radius:12px;border:1px solid #bfdbfe;font-size:1rem;width:100%;max-width:520px}
+video{width:100%;max-width:850px;border-radius:20px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.case{background:white;border-radius:20px;padding:20px;margin:16px 0;box-shadow:0 5px 18px rgba(0,0,0,.09)}.case button{display:block;width:100%;text-align:left;margin:8px 0;background:#eef4ff;color:#111;box-shadow:none;border:1px solid #bfdbfe}</style></head><body><header><h1>🎮 Τι κάνω στο διαδίκτυο;</h1><p>Διάλεξε την πιο ασφαλή αντίδραση.</p></header><main><a class="back" href="index.html">← Επιστροφή</a><div id="cases"></div></main><script>
+const cases=[{q:'Λαμβάνεις μήνυμα από άγνωστο με link για “δωρεάν δώρο”.',a:['Το ανοίγω αμέσως.','Δεν το ανοίγω και ενημερώνω ενήλικα.','Το στέλνω σε φίλους.'],c:1},{q:'Ένας συμμαθητής δέχεται κοροϊδία σε ομαδική συνομιλία.',a:['Συμμετέχω για πλάκα.','Το αγνοώ τελείως.','Δεν συμμετέχω και ζητώ βοήθεια από ενήλικα.'],c:2},{q:'Θέλω να χρησιμοποιήσω AI για εργασία.',a:['Αντιγράφω ό,τι γράψει.','Το χρησιμοποιώ ως βοήθεια και ελέγχω τις πληροφορίες.','Βάζω προσωπικά στοιχεία μαθητών.'],c:1},{q:'Μου ζητούν να στείλω φωτογραφία ή προσωπικά στοιχεία.',a:['Τα στέλνω για να μη φανώ αγενής.','Ρωτώ πρώτα ενήλικα και δεν στέλνω προσωπικά δεδομένα.','Τα ανεβάζω δημόσια.'],c:1}];
+const box=document.getElementById('cases');cases.forEach((x,i)=>{let div=document.createElement('div');div.className='case';div.innerHTML='<h2>'+(i+1)+'. '+x.q+'</h2>'+x.a.map((ans,j)=>'<button onclick="choose('+i+','+j+')">'+ans+'</button>').join('')+'<div class="feedback" id="f'+i+'"></div>';box.appendChild(div);});
+function choose(i,j){let f=document.getElementById('f'+i);if(j===cases[i].c){f.textContent='Σωστή επιλογή! ✅';f.style.color='green'}else{f.textContent='Πρόσεξε! Υπάρχει πιο ασφαλής επιλογή. ❌';f.style.color='crimson'}}
 </script></body></html>

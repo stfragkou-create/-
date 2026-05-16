@@ -1,27 +1,21 @@
-<!DOCTYPE html>
-<html lang="el">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mind Map - Ασφαλής Πλοήγηση</title>
-<style>
-body{font-family:Arial,sans-serif;margin:0;background:#eef4ff}
-h1{text-align:center;color:#0b3d91;padding:22px}
-.center{text-align:center;background:#0b3d91;color:white;padding:28px;border-radius:22px;max-width:520px;margin:10px auto;font-size:1.8rem;font-weight:bold}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;max-width:1100px;margin:auto;padding:25px}
-.card{background:white;border-radius:18px;padding:20px;box-shadow:0 4px 14px rgba(0,0,0,.15);cursor:pointer}
-.card h2{color:#0b3d91}
-.rules{display:none;font-size:1.05rem;line-height:1.6}
-.back{display:block;text-align:center;margin:20px;color:#0b3d91;font-weight:bold}
-</style></head>
-<body>
-<a class="back" href="index.html">← Επιστροφή στην αρχική</a>
-<h1>🛡️ Mind Map: Ασφαλής Πλοήγηση</h1>
-<div class="center">ΑΣΦΑΛΗΣ ΠΛΟΗΓΗΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ</div>
-<div class="grid">
-<div class="card" onclick="toggle('r1')"><h2>🔐 Ισχυροί Κωδικοί</h2><div class="rules" id="r1"><ul><li>Χρησιμοποιώ γράμματα, αριθμούς και σύμβολα.</li><li>Δεν μοιράζομαι τους κωδικούς μου.</li><li>Δεν βάζω παντού τον ίδιο κωδικό.</li></ul></div></div>
-<div class="card" onclick="toggle('r2')"><h2>👤 Προσωπικά Δεδομένα</h2><div class="rules" id="r2"><ul><li>Δεν γράφω διεύθυνση ή τηλέφωνο.</li><li>Σκέφτομαι πριν ανεβάσω φωτογραφία.</li><li>Ζητώ άδεια πριν δημοσιεύσω άλλους.</li></ul></div></div>
-<div class="card" onclick="toggle('r3')"><h2>💬 Σεβασμός Online</h2><div class="rules" id="r3"><ul><li>Μιλώ ευγενικά.</li><li>Δεν κοροϊδεύω και δεν απειλώ.</li><li>Αν δω cyberbullying, ζητώ βοήθεια.</li></ul></div></div>
-<div class="card" onclick="toggle('r4')"><h2>⚠️ Ύποπτο Περιεχόμενο</h2><div class="rules" id="r4"><ul><li>Δεν ανοίγω περίεργα links.</li><li>Δεν κατεβάζω άγνωστα αρχεία.</li><li>Αν κάτι με ανησυχήσει, μιλώ σε ενήλικα.</li></ul></div></div>
-<div class="card" onclick="toggle('r5')"><h2>🤖 Τεχνητή Νοημοσύνη</h2><div class="rules" id="r5"><ul><li>Δεν αντιγράφω άκριτα απαντήσεις.</li><li>Ελέγχω αν οι πληροφορίες είναι σωστές.</li><li>Χρησιμοποιώ την ΤΝ για βοήθεια, όχι για εξαπάτηση.</li></ul></div></div>
-</div>
-<script>function toggle(id){let e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block';}</script>
-</body></html>
+<!DOCTYPE html><html lang="el"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mind Map</title><style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eef4ff,#ffffff);color:#1f2937}
+header{background:linear-gradient(135deg,#0f172a,#0b3d91,#2563eb);color:white;text-align:center;padding:42px 18px}
+h1{margin:0;font-size:2.2rem}header p{font-size:1.1rem;max-width:850px;margin:12px auto}
+main{max-width:1100px;margin:auto;padding:28px 18px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:white;border-radius:22px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.12);margin-bottom:18px}
+.card:hover{transform:translateY(-3px);transition:.2s}.card h2,.card h3{color:#0b3d91;margin-top:0}
+.button,button{display:inline-block;background:#0b3d91;color:white;border:0;padding:12px 18px;border-radius:14px;font-weight:bold;text-decoration:none;cursor:pointer;font-size:1rem;margin:4px}
+.green{background:#059669}.purple{background:#7c3aed}.pink{background:#db2777}
+.back{display:inline-block;margin-bottom:18px;color:#0b3d91;font-weight:bold;text-decoration:none}.badge{display:inline-block;background:#eef2ff;color:#3730a3;padding:10px 14px;border-radius:999px;font-weight:bold;margin:6px}
+.feedback{font-weight:bold;margin-top:8px}.hidden{display:none}footer{text-align:center;background:#0f172a;color:white;padding:22px;margin-top:20px}
+input,select{padding:12px;border-radius:12px;border:1px solid #bfdbfe;font-size:1rem;width:100%;max-width:520px}
+video{width:100%;max-width:850px;border-radius:20px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.rules{display:none;line-height:1.7}.center{text-align:center;background:#0b3d91;color:white;padding:25px;border-radius:22px;font-size:1.6rem;font-weight:bold;margin-bottom:18px}</style></head><body><header><h1>🧠 Mind Map Ασφαλούς Πλοήγησης</h1><p>Πατάμε κάθε κάρτα και ανοίγουν οι κανόνες.</p></header><main><a class="back" href="index.html">← Επιστροφή</a><div class="center">ΑΣΦΑΛΗΣ ΠΛΟΗΓΗΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ</div><div class="grid">
+<div class="card" onclick="toggle('r1')"><h2>🔐 Ισχυροί Κωδικοί</h2><div id="r1" class="rules"><ul><li>Γράμματα, αριθμοί και σύμβολα.</li><li>Δεν μοιράζομαι κωδικούς.</li><li>Δεν βάζω παντού τον ίδιο κωδικό.</li></ul></div></div>
+<div class="card" onclick="toggle('r2')"><h2>👤 Προσωπικά Δεδομένα</h2><div id="r2" class="rules"><ul><li>Δεν δημοσιεύω διεύθυνση ή τηλέφωνο.</li><li>Προσέχω φωτογραφίες και τοποθεσία.</li><li>Σκέφτομαι πριν κοινοποιήσω.</li></ul></div></div>
+<div class="card" onclick="toggle('r3')"><h2>💬 Cyberbullying</h2><div id="r3" class="rules"><ul><li>Δεν κοροϊδεύω και δεν απειλώ.</li><li>Κρατώ αποδείξεις.</li><li>Ζητώ βοήθεια από ενήλικα.</li></ul></div></div>
+<div class="card" onclick="toggle('r4')"><h2>⚠️ Ύποπτα Links</h2><div id="r4" class="rules"><ul><li>Δεν ανοίγω άγνωστα links.</li><li>Ελέγχω αποστολέα.</li><li>Δεν κατεβάζω άγνωστα αρχεία.</li></ul></div></div>
+<div class="card" onclick="toggle('r5')"><h2>🤖 ΤΝ με υπευθυνότητα</h2><div id="r5" class="rules"><ul><li>Δεν αντιγράφω άκριτα.</li><li>Ελέγχω πληροφορίες.</li><li>Δεν δίνω προσωπικά στοιχεία.</li></ul></div></div>
+<div class="card" onclick="toggle('r6')"><h2>⏰ Ισορροπία</h2><div id="r6" class="rules"><ul><li>Κάνω διαλείμματα.</li><li>Δεν μένω συνεχώς στην οθόνη.</li><li>Προστατεύω ύπνο και συγκέντρωση.</li></ul></div></div>
+</div></main><script>function toggle(id){let e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block';}</script></body></html>
