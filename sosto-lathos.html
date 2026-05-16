@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="el"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Σωστό ή Λάθος</title><style>
+body{font-family:Arial,sans-serif;background:#f4f7fb;margin:0;padding:20px}
+main{max-width:850px;margin:auto;background:white;padding:25px;border-radius:20px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+h1{color:#0b3d91}.q{border:1px solid #ddd;border-radius:14px;padding:15px;margin:14px 0}
+button{background:#0b3d91;color:white;border:none;padding:10px 15px;border-radius:10px;margin:5px;cursor:pointer;font-weight:bold}
+.feedback{font-weight:bold;margin-top:8px}.back{color:#0b3d91;font-weight:bold;text-decoration:none}
+</style></head><body><main>
+<a class="back" href="index.html">← Επιστροφή</a>
+<h1>✅ Quiz: Σωστό ή Λάθος</h1>
+<div id="quiz"></div>
+<h2 id="score"></h2>
+</main>
+<script>
+const data=[
+['Μπορώ να μοιράζομαι τον κωδικό μου με φίλους μου.',false],
+['Πριν κοινοποιήσω κάτι, ελέγχω αν είναι αληθινό.',true],
+['Τα προσωπικά δεδομένα πρέπει να προστατεύονται.',true],
+['Αν κάποιος με ενοχλεί online, το κρατάω μυστικό.',false],
+['Η τεχνητή νοημοσύνη μπορεί να κάνει λάθη.',true],
+['Ανοίγω πάντα links που μου στέλνουν άγνωστοι.',false]
+];
+let correct=0,answered=0;
+const quiz=document.getElementById('quiz');
+data.forEach((item,i)=>{
+const div=document.createElement('div');div.className='q';
+div.innerHTML=`<p><b>${i+1}. ${item[0]}</b></p>
+<button onclick="answer(${i},true,this)">Σωστό</button>
+<button onclick="answer(${i},false,this)">Λάθος</button>
+<div class="feedback" id="f${i}"></div>`;
+quiz.appendChild(div);
+});
+function answer(i,val,btn){
+let f=document.getElementById('f'+i);
+if(f.textContent) return;
+answered++;
+if(val===data[i][1]){correct++;f.textContent='Μπράβο! Σωστή απάντηση ✅';f.style.color='green'}
+else{f.textContent='Όχι ακριβώς. Ξανασκέψου τον κανόνα ❌';f.style.color='crimson'}
+document.getElementById('score').textContent=`Σκορ: ${correct}/${answered}`;
+}
+</script></body></html>

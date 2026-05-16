@@ -1,116 +1,27 @@
 <!DOCTYPE html>
 <html lang="el">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ασφαλής Πλοήγηση</title>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mind Map - Ασφαλής Πλοήγηση</title>
 <style>
-body{
-font-family:Arial,sans-serif;
-margin:0;
-background:#eef4ff;
-}
-h1{
-text-align:center;
-padding:20px;
-color:#0b3d91;
-}
-.container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-padding:30px;
-}
-.card{
-background:white;
-width:260px;
-padding:20px;
-border-radius:20px;
-box-shadow:0 4px 15px rgba(0,0,0,0.15);
-cursor:pointer;
-transition:0.2s;
-}
-.card:hover{
-transform:scale(1.05);
-}
-.rules{
-display:none;
-margin-top:10px;
-}
-button{
-margin-top:10px;
-background:#0b3d91;
-color:white;
-border:none;
-padding:10px 16px;
-border-radius:10px;
-cursor:pointer;
-}
-</style>
-</head>
+body{font-family:Arial,sans-serif;margin:0;background:#eef4ff}
+h1{text-align:center;color:#0b3d91;padding:22px}
+.center{text-align:center;background:#0b3d91;color:white;padding:28px;border-radius:22px;max-width:520px;margin:10px auto;font-size:1.8rem;font-weight:bold}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;max-width:1100px;margin:auto;padding:25px}
+.card{background:white;border-radius:18px;padding:20px;box-shadow:0 4px 14px rgba(0,0,0,.15);cursor:pointer}
+.card h2{color:#0b3d91}
+.rules{display:none;font-size:1.05rem;line-height:1.6}
+.back{display:block;text-align:center;margin:20px;color:#0b3d91;font-weight:bold}
+</style></head>
 <body>
-
-<h1>🛡️ Ασφαλής Πλοήγηση στο Διαδίκτυο</h1>
-
-<div class="container">
-
-<div class="card" onclick="toggle('r1')">
-<h2>🔐 Ισχυροί Κωδικοί</h2>
-<div class="rules" id="r1">
-<ul>
-<li>Χρησιμοποίησε δυνατούς κωδικούς.</li>
-<li>Μην τους μοιράζεσαι.</li>
-<li>Άλλαζέ τους συχνά.</li>
-</ul>
+<a class="back" href="index.html">← Επιστροφή στην αρχική</a>
+<h1>🛡️ Mind Map: Ασφαλής Πλοήγηση</h1>
+<div class="center">ΑΣΦΑΛΗΣ ΠΛΟΗΓΗΣΗ ΣΤΟ ΔΙΑΔΙΚΤΥΟ</div>
+<div class="grid">
+<div class="card" onclick="toggle('r1')"><h2>🔐 Ισχυροί Κωδικοί</h2><div class="rules" id="r1"><ul><li>Χρησιμοποιώ γράμματα, αριθμούς και σύμβολα.</li><li>Δεν μοιράζομαι τους κωδικούς μου.</li><li>Δεν βάζω παντού τον ίδιο κωδικό.</li></ul></div></div>
+<div class="card" onclick="toggle('r2')"><h2>👤 Προσωπικά Δεδομένα</h2><div class="rules" id="r2"><ul><li>Δεν γράφω διεύθυνση ή τηλέφωνο.</li><li>Σκέφτομαι πριν ανεβάσω φωτογραφία.</li><li>Ζητώ άδεια πριν δημοσιεύσω άλλους.</li></ul></div></div>
+<div class="card" onclick="toggle('r3')"><h2>💬 Σεβασμός Online</h2><div class="rules" id="r3"><ul><li>Μιλώ ευγενικά.</li><li>Δεν κοροϊδεύω και δεν απειλώ.</li><li>Αν δω cyberbullying, ζητώ βοήθεια.</li></ul></div></div>
+<div class="card" onclick="toggle('r4')"><h2>⚠️ Ύποπτο Περιεχόμενο</h2><div class="rules" id="r4"><ul><li>Δεν ανοίγω περίεργα links.</li><li>Δεν κατεβάζω άγνωστα αρχεία.</li><li>Αν κάτι με ανησυχήσει, μιλώ σε ενήλικα.</li></ul></div></div>
+<div class="card" onclick="toggle('r5')"><h2>🤖 Τεχνητή Νοημοσύνη</h2><div class="rules" id="r5"><ul><li>Δεν αντιγράφω άκριτα απαντήσεις.</li><li>Ελέγχω αν οι πληροφορίες είναι σωστές.</li><li>Χρησιμοποιώ την ΤΝ για βοήθεια, όχι για εξαπάτηση.</li></ul></div></div>
 </div>
-</div>
-
-<div class="card" onclick="toggle('r2')">
-<h2>👤 Προσωπικά Δεδομένα</h2>
-<div class="rules" id="r2">
-<ul>
-<li>Μην δημοσιεύεις προσωπικά στοιχεία.</li>
-<li>Πρόσεχε τι ανεβάζεις online.</li>
-<li>Ζήτησε βοήθεια από ενήλικα.</li>
-</ul>
-</div>
-</div>
-
-<div class="card" onclick="toggle('r3')">
-<h2>💬 Σεβασμός Online</h2>
-<div class="rules" id="r3">
-<ul>
-<li>Να μιλάς ευγενικά.</li>
-<li>Όχι cyberbullying.</li>
-<li>Σεβασμός σε όλους.</li>
-</ul>
-</div>
-</div>
-
-<div class="card" onclick="toggle('r4')">
-<h2>⚠️ Ύποπτα Links</h2>
-<div class="rules" id="r4">
-<ul>
-<li>Μην ανοίγεις άγνωστους συνδέσμους.</li>
-<li>Πρόσεχε τα ψεύτικα μηνύματα.</li>
-<li>Έλεγχε τις ιστοσελίδες.</li>
-</ul>
-</div>
-</div>
-
-</div>
-
-<script>
-function toggle(id){
-const el=document.getElementById(id);
-if(el.style.display==="block"){
-el.style.display="none";
-}else{
-el.style.display="block";
-}
-}
-</script>
-
-</body>
-</html>
+<script>function toggle(id){let e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block';}</script>
+</body></html>

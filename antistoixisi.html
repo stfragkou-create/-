@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="el"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Αντιστοίχιση</title><style>
+body{font-family:Arial,sans-serif;background:#eef4ff;margin:0;padding:20px}
+main{max-width:900px;margin:auto;background:white;padding:25px;border-radius:20px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+h1{color:#0b3d91}.row{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:12px 0;align-items:center}
+select{padding:12px;border-radius:10px;font-size:1rem}button{background:#0b3d91;color:white;border:none;padding:12px 18px;border-radius:10px;font-weight:bold}.back{color:#0b3d91;font-weight:bold;text-decoration:none}
+</style></head><body><main>
+<a class="back" href="index.html">← Επιστροφή</a>
+<h1>🔗 Παιχνίδι Αντιστοίχισης</h1>
+<p>Διάλεξε τον σωστό κανόνα για κάθε έννοια.</p>
+<div id="area"></div>
+<button onclick="check()">Έλεγχος απαντήσεων</button>
+<h2 id="result"></h2>
+</main>
+<script>
+const pairs=[
+['Ισχυρός κωδικός','Χρησιμοποιώ γράμματα, αριθμούς και σύμβολα.'],
+['Προσωπικά δεδομένα','Δεν δημοσιεύω διεύθυνση και τηλέφωνο.'],
+['Cyberbullying','Ζητώ βοήθεια από ενήλικα.'],
+['Ψεύτικη πληροφορία','Ελέγχω την πηγή πριν πιστέψω ή κοινοποιήσω.'],
+['Τεχνητή νοημοσύνη','Ελέγχω την απάντηση και δεν αντιγράφω άκριτα.']
+];
+const options=pairs.map(p=>p[1]).sort(()=>Math.random()-.5);
+const area=document.getElementById('area');
+pairs.forEach((p,i)=>{
+let div=document.createElement('div');div.className='row';
+div.innerHTML=`<b>${p[0]}</b><select id="s${i}"><option value="">Διάλεξε...</option>${options.map(o=>`<option>${o}</option>`).join('')}</select>`;
+area.appendChild(div);
+});
+function check(){
+let score=0;
+pairs.forEach((p,i)=>{if(document.getElementById('s'+i).value===p[1])score++;});
+document.getElementById('result').textContent=`Σωστές απαντήσεις: ${score}/${pairs.length}`;
+}
+</script></body></html>

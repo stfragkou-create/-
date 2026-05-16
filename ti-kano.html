@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="el"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Τι κάνω;</title><style>
+body{font-family:Arial,sans-serif;background:#f4f7fb;margin:0;padding:20px}
+main{max-width:850px;margin:auto;background:white;padding:25px;border-radius:20px;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+h1{color:#0b3d91}.case{border:2px solid #e5e7eb;border-radius:16px;padding:18px;margin:16px 0;background:#fbfdff}
+button{display:block;width:100%;text-align:left;background:#eef4ff;color:#111;border:1px solid #c7d2fe;padding:12px;border-radius:10px;margin:8px 0;cursor:pointer;font-size:1rem}.feedback{font-weight:bold;margin-top:10px}.back{color:#0b3d91;font-weight:bold;text-decoration:none}
+</style></head><body><main>
+<a class="back" href="index.html">← Επιστροφή</a>
+<h1>🎮 Τι κάνω στο διαδίκτυο;</h1>
+<div id="cases"></div>
+</main>
+<script>
+const cases=[
+{q:'Λαμβάνεις μήνυμα από άγνωστο με link για “δωρεάν δώρο”.',a:['Το ανοίγω αμέσως.','Δεν το ανοίγω και ενημερώνω ενήλικα.','Το στέλνω και σε φίλους.'],c:1},
+{q:'Ένας συμμαθητής δέχεται κοροϊδία σε ομαδική συνομιλία.',a:['Συμμετέχω για πλάκα.','Το αγνοώ τελείως.','Δεν συμμετέχω και ζητώ βοήθεια από ενήλικα.'],c:2},
+{q:'Θέλω να χρησιμοποιήσω AI για εργασία.',a:['Αντιγράφω ό,τι γράψει.','Το χρησιμοποιώ ως βοήθεια και ελέγχω τις πληροφορίες.','Βάζω προσωπικά στοιχεία μαθητών.'],c:1}
+];
+const box=document.getElementById('cases');
+cases.forEach((x,i)=>{
+let div=document.createElement('div');div.className='case';
+div.innerHTML=`<h2>${i+1}. ${x.q}</h2>` + x.a.map((ans,j)=>`<button onclick="choose(${i},${j},this)">${ans}</button>`).join('') + `<div class="feedback" id="f${i}"></div>`;
+box.appendChild(div);
+});
+function choose(i,j,btn){
+let f=document.getElementById('f'+i);
+if(j===cases[i].c){f.textContent='Σωστή επιλογή! ✅';f.style.color='green'}
+else{f.textContent='Πρόσεξε! Υπάρχει πιο ασφαλής επιλογή. ❌';f.style.color='crimson'}
+}
+</script></body></html>
