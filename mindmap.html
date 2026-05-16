@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ασφαλής Πλοήγηση</title>
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#eef4ff;
+}
+h1{
+text-align:center;
+padding:20px;
+color:#0b3d91;
+}
+.container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:30px;
+}
+.card{
+background:white;
+width:260px;
+padding:20px;
+border-radius:20px;
+box-shadow:0 4px 15px rgba(0,0,0,0.15);
+cursor:pointer;
+transition:0.2s;
+}
+.card:hover{
+transform:scale(1.05);
+}
+.rules{
+display:none;
+margin-top:10px;
+}
+button{
+margin-top:10px;
+background:#0b3d91;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h1>🛡️ Ασφαλής Πλοήγηση στο Διαδίκτυο</h1>
+
+<div class="container">
+
+<div class="card" onclick="toggle('r1')">
+<h2>🔐 Ισχυροί Κωδικοί</h2>
+<div class="rules" id="r1">
+<ul>
+<li>Χρησιμοποίησε δυνατούς κωδικούς.</li>
+<li>Μην τους μοιράζεσαι.</li>
+<li>Άλλαζέ τους συχνά.</li>
+</ul>
+</div>
+</div>
+
+<div class="card" onclick="toggle('r2')">
+<h2>👤 Προσωπικά Δεδομένα</h2>
+<div class="rules" id="r2">
+<ul>
+<li>Μην δημοσιεύεις προσωπικά στοιχεία.</li>
+<li>Πρόσεχε τι ανεβάζεις online.</li>
+<li>Ζήτησε βοήθεια από ενήλικα.</li>
+</ul>
+</div>
+</div>
+
+<div class="card" onclick="toggle('r3')">
+<h2>💬 Σεβασμός Online</h2>
+<div class="rules" id="r3">
+<ul>
+<li>Να μιλάς ευγενικά.</li>
+<li>Όχι cyberbullying.</li>
+<li>Σεβασμός σε όλους.</li>
+</ul>
+</div>
+</div>
+
+<div class="card" onclick="toggle('r4')">
+<h2>⚠️ Ύποπτα Links</h2>
+<div class="rules" id="r4">
+<ul>
+<li>Μην ανοίγεις άγνωστους συνδέσμους.</li>
+<li>Πρόσεχε τα ψεύτικα μηνύματα.</li>
+<li>Έλεγχε τις ιστοσελίδες.</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+<script>
+function toggle(id){
+const el=document.getElementById(id);
+if(el.style.display==="block"){
+el.style.display="none";
+}else{
+el.style.display="block";
+}
+}
+</script>
+
+</body>
+</html>
