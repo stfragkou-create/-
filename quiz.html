@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Αρχή</title>
+<title>Quiz</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#070b1f;color:white}
@@ -54,6 +54,8 @@ h1.page-title{text-align:center;font-size:2.7rem;margin:0 0 12px}h2{text-align:c
 @media(max-width:850px){
   .topbar{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;text-align:center}.hero h1{font-size:2.45rem}.hero-visual{font-size:5rem}
 }
+
+.quiz-card{margin:16px auto;max-width:900px}.feedback{font-weight:bold;margin-top:10px}
 </style>
 </head>
 <body>
@@ -70,27 +72,42 @@ h1.page-title{text-align:center;font-size:2.7rem;margin:0 0 12px}h2{text-align:c
 </nav>
 </header>
 
-<section class="hero">
-  <div>
-    <h1>Ψηφιακό Κέντρο<br>Ασφαλούς Πλοήγησης</h1>
-    <h2>Σκέφτομαι πριν κάνω κλικ!</h2>
-    <p>Ένα διαδραστικό περιβάλλον για μαθητές Γυμνασίου με βίντεο, infographic, quiz, αντιστοίχιση και αφίσα.</p>
-    <a class="button" href="video1.html">🚀 Ξεκίνα</a>
-  </div>
-  <div class="hero-visual">🔐💻</div>
-</section>
 <section class="page">
-  <div class="grid">
-    <div class="card tile"><div class="icon">🎬</div><h3>βίντεο 1</h3><p>Αφόρμηση για συζήτηση.</p><a class="button" href="video1.html">Άνοιγμα</a></div>
-    <div class="card tile"><div class="icon">🧠</div><h3>infographic</h3><p>Πατάμε πάνω στα κυκλάκια και ανοίγει πληροφορία.</p><a class="button purple" href="infographic.html">Άνοιγμα</a></div>
-    <div class="card tile"><div class="icon">🎥</div><h3>βίντεο 2</h3><p>Δεύτερο βίντεο για εφήβους.</p><a class="button green" href="video2.html">Άνοιγμα</a></div>
-    <div class="card tile"><div class="icon">✅</div><h3>quiz</h3><p>Σωστό ή λάθος με σκορ.</p><a class="button pink" href="quiz.html">Παίξε</a></div>
-    <div class="card tile"><div class="icon">🧩</div><h3>αντιστοίχιση</h3><p>Ταιριάζουμε έννοιες και κανόνες.</p><a class="button orange" href="match.html">Ξεκίνα</a></div>
-    <div class="card tile"><div class="icon">📌</div><h3>αφίσα</h3><p>Τελική οπτική σύνοψη.</p><a class="button" href="poster.html">Προβολή</a></div>
-  </div>
+<h1 class="page-title">✅ Quiz: Σωστό ή Λάθος</h1>
+<p class="lead" style="text-align:center">Απάντησε και δες το σκορ σου.</p>
+<div id="quizArea"></div>
+<h2 id="score"></h2>
+<p style="text-align:center"><a class="button orange" href="match.html">Συνέχεια στην αντιστοίχιση →</a></p>
 </section>
 
 <div class="footer">Σκέψη • Σεβασμός • Προστασία • Υπευθυνότητα</div>
+
+<script>
+const quizData=[
+['Μπορώ να μοιράζομαι τον κωδικό μου με φίλους.',false],
+['Πριν κοινοποιήσω κάτι, ελέγχω αν είναι αληθινό.',true],
+['Τα προσωπικά δεδομένα πρέπει να προστατεύονται.',true],
+['Αν κάποιος με ενοχλεί online, το κρατάω μυστικό.',false],
+['Η τεχνητή νοημοσύνη μπορεί να κάνει λάθη.',true],
+['Δεν ανοίγω άγνωστα links.',true]
+];
+let correct=0,answered=0;
+const quizArea=document.getElementById('quizArea');
+quizData.forEach((item,i)=>{
+const div=document.createElement('div');
+div.className='card quiz-card';
+div.innerHTML=`<p><b>${i+1}. ${item[0]}</b></p><button class="green" onclick="answer(${i},true)">Σωστό</button><button class="pink" onclick="answer(${i},false)">Λάθος</button><div class="feedback" id="f${i}"></div>`;
+quizArea.appendChild(div);
+});
+function answer(i,val){
+const f=document.getElementById('f'+i);
+if(f.textContent)return;
+answered++;
+if(val===quizData[i][1]){correct++;f.textContent='Μπράβο! Σωστή απάντηση ✅';f.style.color='#86efac'}
+else{f.textContent='Όχι ακριβώς. Ξανασκέψου τον κανόνα ❌';f.style.color='#fca5a5'}
+document.getElementById('score').textContent=`Σκορ: ${correct}/${answered}`;
+}
+</script>
 
 </body>
 </html>

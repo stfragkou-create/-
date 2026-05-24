@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infographic</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#070b1f;color:white}
+body{
+  background:
+    radial-gradient(circle at 80% 20%, rgba(6,182,212,.28), transparent 24%),
+    radial-gradient(circle at 15% 75%, rgba(124,58,237,.26), transparent 28%),
+    linear-gradient(135deg,#070b1f 0%,#0b1025 48%,#1e1b4b 100%);
+}
+.topbar{
+  position:sticky;top:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:12px 28px;background:rgba(5,8,22,.94);
+  border-bottom:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px)
+}
+.logo{font-weight:bold;color:#67e8f9;white-space:nowrap}
+nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+nav a{
+  color:white;text-decoration:none;font-size:.82rem;font-weight:bold;text-transform:lowercase;
+  padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.08)
+}
+nav a:hover,.active{background:#2563eb!important}
+.page{max-width:1180px;margin:auto;padding:46px 7% 70px}
+.hero{
+  min-height:calc(100vh - 62px);display:grid;grid-template-columns:1.1fr .9fr;
+  align-items:center;gap:28px;padding:60px 8%;
+}
+.hero h1{font-size:3.5rem;margin:0 0 12px;line-height:1.05}
+.hero h2{font-size:2rem;color:#67e8f9;margin:0 0 18px}
+.hero p,.lead{font-size:1.16rem;line-height:1.7;color:#dbeafe}
+.hero-visual{font-size:8rem;text-align:center;filter:drop-shadow(0 0 28px rgba(103,232,249,.55))}
+.card{
+  background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);
+  border-radius:26px;padding:28px;box-shadow:0 12px 35px rgba(0,0,0,.28);backdrop-filter:blur(10px)
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.tile{min-height:190px;transition:.25s}.tile:hover{transform:translateY(-6px);border-color:#67e8f9}
+.icon{font-size:3.2rem}.tile h3{text-transform:lowercase;margin:12px 0 8px}
+.button,button{
+  display:inline-block;margin-top:14px;background:#2563eb;color:white;text-decoration:none;
+  padding:12px 18px;border:0;border-radius:14px;font-weight:bold;cursor:pointer;font-size:1rem
+}
+.green{background:#059669}.purple{background:#7c3aed}.pink{background:#db2777}.orange{background:#ea580c}
+h1.page-title{text-align:center;font-size:2.7rem;margin:0 0 12px}h2{text-align:center}
+.video-frame{position:relative;width:100%;padding-top:56.25%;border-radius:22px;overflow:hidden;background:#000}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.footer{text-align:center;padding:24px;color:#cbd5e1}
+@media(max-width:850px){
+  .topbar{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;text-align:center}.hero h1{font-size:2.45rem}.hero-visual{font-size:5rem}
+}
+
+.info-wrap{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
+.image-map{position:relative;max-width:980px;margin:auto}
+.image-map img{width:100%;border-radius:26px;box-shadow:0 14px 38px rgba(0,0,0,.35);background:white}
+.hotspot{
+  position:absolute;width:12%;aspect-ratio:1;border-radius:50%;border:3px solid rgba(255,255,255,.9);
+  background:rgba(6,182,212,.18);box-shadow:0 0 18px rgba(103,232,249,.9);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:white;font-weight:bold;font-size:1.6rem;
+  transform:translate(-50%,-50%);animation:pulse 1.8s infinite
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(103,232,249,.75)}70%{box-shadow:0 0 0 18px rgba(103,232,249,0)}100%{box-shadow:0 0 0 0 rgba(103,232,249,0)}}
+.h1{left:50%;top:17%}.h2{left:79%;top:31%}.h3{left:83%;top:56%}.h4{left:69%;top:79%}.h5{left:31%;top:79%}.h6{left:17%;top:56%}.h7{left:21%;top:31%}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.68);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.modal-card{max-width:620px;background:#0f172a;border:1px solid rgba(103,232,249,.45);border-radius:26px;padding:30px;box-shadow:0 0 45px rgba(6,182,212,.35)}
+.modal-card h2{text-align:left;color:#67e8f9}.modal-card li{margin:10px 0;line-height:1.55}
+.close{float:right;background:#db2777;margin-top:0}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="logo">🛡️ Ασφαλής Πλοήγηση</div>
+<nav>
+<a href="index.html">αρχή</a>
+<a href="video1.html">βίντεο 1</a>
+<a href="infographic.html">infographic</a>
+<a href="video2.html">βίντεο 2</a>
+<a href="quiz.html">quiz</a>
+<a href="match.html">αντιστοίχιση</a>
+<a href="poster.html">αφίσα</a>
+</nav>
+</header>
+
+<section class="page">
+<h1 class="page-title">🧠 Διαδραστικό Infographic</h1>
+<p class="lead" style="text-align:center">Πάτησε πάνω στα φωτεινά κυκλάκια της εικόνας για να ανοίξει η πληροφορία.</p>
+
+<div class="info-wrap">
+  <div class="image-map card">
+    <img src="infographic.png" alt="Infographic ασφαλούς πλοήγησης">
+    <button class="hotspot h1" onclick="openModal('m1')">+</button>
+    <button class="hotspot h2" onclick="openModal('m2')">+</button>
+    <button class="hotspot h3" onclick="openModal('m3')">+</button>
+    <button class="hotspot h4" onclick="openModal('m4')">+</button>
+    <button class="hotspot h5" onclick="openModal('m5')">+</button>
+    <button class="hotspot h6" onclick="openModal('m6')">+</button>
+    <button class="hotspot h7" onclick="openModal('m7')">+</button>
+  </div>
+</div>
+
+<p style="text-align:center"><a class="button green" href="video2.html">Συνέχεια στο βίντεο 2 →</a></p>
+</section>
+
+<div class="modal" id="m1"><div class="modal-card"><button class="close" onclick="closeModal()">Κλείσιμο</button><h2>🔐 Ισχυροί κωδικοί</h2><ul><li>Χρησιμοποιώ γράμματα, αριθμούς και σύμβολα.</li><li>Δεν μοιράζομαι τον κωδικό μου.</li><li>Δεν βάζω τον ίδιο κωδικό παντού.</li></ul></div></div>
+<div class="modal" id="m2"><div class="modal-card"><button class="close" onclick="closeModal()">Κλείσιμο</button><h2>👤 Προσωπικά δεδομένα</h2><ul><li>Δεν δίνω διεύθυνση, τηλέφωνο, σχολείο ή κωδικούς.</li><li>Σκέφτομαι πριν ανεβάσω φωτογραφίες.</li><li>Προσέχω την τοποθεσία μου.</li></ul></div></div>
+<div class="modal" id="m3"><div class="modal-card"><button class="close" onclick="closeModal()">Κλείσιμο</button><h2>💬 Σεβασμός online</h2><ul><li>Μιλώ όπως θα μιλούσα και από κοντά.</li><li>Δεν κάνω cyberbullying.</li><li>Αν δω κάτι άσχημο, ζητώ βοήθεια.</li></ul></div></div>
+<div class="modal" id="m4"><div class="modal-card"><button class="close" onclick="closeModal()">Κλείσιμο</button><h2>⚠️ Ύποπτο περιεχόμενο</h2><ul><li>Δεν ανοίγω άγνωστα links.</li><li>Δεν κατεβάζω περίεργα αρχεία.</li><li>Ελέγχω πάντα αποστολέα και πηγή.</li></ul></div></div>
+<div class="modal" id="m5"><div class="modal-card"><button class="close" onclick="closeModal()">Κλείσιμο</button><h2>⏰ Χρόνος στην οθόνη</h2><ul><li>Κάνω διαλείμματα.</li><li>Βάζω όρια στη χρήση.</li><li>Προστατεύω ύπνο και συγκέντρωση.</li></ul></div></div>
+<div class="modal" id="m6"><div class="modal-card"><button class="close" onclick="closeModal()">Κλείσιμο</button><h2>🧑‍🏫 Ζητώ βοήθεια</h2><ul><li>Μιλώ σε γονέα ή εκπαιδευτικό όταν κάτι με ανησυχεί.</li><li>Δεν κρατώ μυστικό κάτι που με φοβίζει.</li><li>Κρατώ αποδείξεις αν χρειάζεται.</li></ul></div></div>
+<div class="modal" id="m7"><div class="modal-card"><button class="close" onclick="closeModal()">Κλείσιμο</button><h2>🤖 Τεχνητή νοημοσύνη</h2><ul><li>Δεν αντιγράφω άκριτα.</li><li>Ελέγχω αν οι πληροφορίες είναι σωστές.</li><li>Δεν δίνω προσωπικά δεδομένα.</li></ul></div></div>
+
+<div class="footer">Σκέψη • Σεβασμός • Προστασία • Υπευθυνότητα</div>
+
+<script>
+function openModal(id){document.getElementById(id).style.display='flex'}
+function closeModal(){document.querySelectorAll('.modal').forEach(m=>m.style.display='none')}
+document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal()}))
+</script>
+
+</body>
+</html>
