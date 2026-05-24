@@ -1,148 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="el">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ψηφιακό Κέντρο Ασφαλούς Πλοήγησης</title>
-
 <style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#06b6d4);
-color:white;
-}
-
-header{
-background:rgba(0,0,0,0.25);
-backdrop-filter:blur(10px);
-padding:18px;
-text-align:center;
-position:sticky;
-top:0;
-z-index:999;
-}
-
-nav{
-margin-top:12px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-margin:8px;
-font-size:14px;
-font-weight:bold;
-}
-
-main{
-max-width:1200px;
-margin:auto;
-padding:24px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
-}
-
-.card{
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(10px);
-padding:22px;
-border-radius:22px;
-box-shadow:0 8px 24px rgba(0,0,0,0.2);
-}
-
-.button{
-display:inline-block;
-background:white;
-color:#0b3d91;
-padding:12px 18px;
-border-radius:14px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.poster{
-width:100%;
-max-width:900px;
-border-radius:24px;
-display:block;
-margin:auto;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
-
-footer{
-text-align:center;
-padding:20px;
-}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#080b1f;color:white}
+.topbar{position:sticky;top:0;z-index:999;background:rgba(7,12,34,.94);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;border-bottom:1px solid rgba(255,255,255,.14)}
+.logo{font-weight:bold;color:#67e8f9;white-space:nowrap}
+nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+nav a{color:white;text-decoration:none;font-size:.84rem;font-weight:bold;text-transform:lowercase;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08)}
+nav a:hover{background:#2563eb}
+.hero{min-height:520px;background:radial-gradient(circle at 70% 40%,rgba(6,182,212,.35),transparent 19%),radial-gradient(circle at 86% 27%,rgba(168,85,247,.35),transparent 24%),linear-gradient(135deg,#0b1025 0%,#111b46 52%,#2e1065 100%);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:28px;padding:70px 8%}
+.hero h1{font-size:3.4rem;margin:0 0 10px}.hero h2{color:#67e8f9;font-size:2.1rem;margin:0 0 16px}.hero p{font-size:1.18rem;line-height:1.7;max-width:570px}.hero-visual{text-align:center;font-size:8.5rem;filter:drop-shadow(0 0 30px rgba(103,232,249,.55))}
+.start{display:inline-block;margin-top:16px;background:linear-gradient(135deg,#2563eb,#06b6d4);color:white;padding:15px 26px;border-radius:999px;text-decoration:none;font-weight:bold}
+.section{padding:62px 8%}.section h2{text-align:center;font-size:2.2rem;margin:0 0 28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:28px;min-height:205px;box-shadow:0 12px 30px rgba(0,0,0,.22);backdrop-filter:blur(10px);transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:#67e8f9}.icon{font-size:3.4rem;margin-bottom:12px}.card h3{font-size:1.35rem;margin:0 0 10px;text-transform:lowercase}.card p{color:#dbeafe;line-height:1.55}
+.button,button{display:inline-block;margin-top:12px;background:#2563eb;color:white;text-decoration:none;padding:12px 18px;border-radius:14px;font-weight:bold;border:none;cursor:pointer}.purple{background:#7c3aed}.green{background:#059669}.pink{background:#db2777}.orange{background:#ea580c}
+.video-box,.quiz-card,.match-card{max-width:920px;margin:16px auto;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:24px}
+.video-frame{position:relative;width:100%;padding-top:56.25%;border-radius:18px;overflow:hidden;background:#000}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mindmap-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}.infographic-img{width:100%;border-radius:24px;box-shadow:0 12px 35px rgba(0,0,0,.32);background:white}
+.bubble-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}.bubble{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:18px;cursor:pointer;transition:.2s}.bubble:hover{background:rgba(103,232,249,.18);transform:scale(1.03)}.bubble h3{margin:0}.rules{display:none;margin-top:12px;color:#e0f2fe;line-height:1.55}
+.feedback{font-weight:bold;margin-top:10px}.match-row{display:grid;grid-template-columns:1fr 1.4fr;gap:14px;margin:12px 0;align-items:center}select{padding:12px;border-radius:12px;font-size:1rem;width:100%}
+.poster-box{max-width:940px;margin:auto;text-align:center}.poster-img{width:100%;border-radius:24px;box-shadow:0 12px 35px rgba(0,0,0,.32);background:white}
+footer{text-align:center;padding:28px;background:#050816;color:#cbd5e1}
+@media(max-width:850px){.hero{grid-template-columns:1fr;text-align:center}.hero h1{font-size:2.3rem}.mindmap-wrap{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}nav{justify-content:flex-start}}
 </style>
 </head>
-
 <body>
-
-<header>
-<h1>🛡️ Ψηφιακό Κέντρο Ασφαλούς Πλοήγησης</h1>
-
+<header class="topbar">
+<div class="logo">🛡️ Ψηφιακό Κέντρο Ασφαλούς Πλοήγησης</div>
 <nav>
-<a href="mindmap.html">Mind Map</a>
-<a href="sosto-lathos.html">Quiz</a>
-<a href="antistoixisi.html">Αντιστοίχιση</a>
-<a href="ti-kano.html">Τι κάνω;</a>
-<a href="ai-safety.html">AI Safety</a>
-<a href="escape-room.html">Escape Room</a>
-<a href="video.html">Video</a>
-<a href="badges.html">Badges</a>
+<a href="#video1">βίντεο 1</a><a href="#mindmap">infographic</a><a href="#video2">βίντεο 2</a><a href="#quiz">quiz</a><a href="#match">αντιστοίχιση</a><a href="#poster">αφίσα</a>
 </nav>
 </header>
 
-<main>
-
-<div class="grid">
-
-<div class="card">
-<h2>🧠 Mind Map</h2>
-<p>Πατάμε θεματικές και ανοίγουν κανόνες.</p>
-<a class="button" href="mindmap.html">Άνοιγμα</a>
+<section class="hero">
+<div>
+<h1>Καλώς ήρθες!</h1>
+<h2>Σκέφτομαι πριν κάνω κλικ!</h2>
+<p>Μάθε, παίξε και εξερεύνησε τον ψηφιακό κόσμο με ασφάλεια, σεβασμό και υπευθυνότητα.</p>
+<a class="start" href="#video1">🚀 Ξεκίνα την εξερεύνηση</a>
 </div>
+<div class="hero-visual">🔐💻</div>
+</section>
 
-<div class="card">
-<h2>✅ Quiz</h2>
-<p>Σωστό ή λάθος με σκορ.</p>
-<a class="button" href="sosto-lathos.html">Παίξε</a>
+<section class="section">
+<div class="cards">
+<div class="card"><div class="icon">🎬</div><h3>βίντεο 1</h3><p>Αφόρμηση για συζήτηση.</p><a class="button" href="#video1">Άνοιγμα</a></div>
+<div class="card"><div class="icon">🧠</div><h3>infographic</h3><p>Διαδραστικός χάρτης με κανόνες.</p><a class="button purple" href="#mindmap">Άνοιγμα</a></div>
+<div class="card"><div class="icon">🎥</div><h3>βίντεο 2</h3><p>Δεύτερο βίντεο για εφήβους.</p><a class="button green" href="#video2">Άνοιγμα</a></div>
+<div class="card"><div class="icon">✅</div><h3>quiz</h3><p>Ερωτήσεις σωστού ή λάθους.</p><a class="button pink" href="#quiz">Παίξε</a></div>
+<div class="card"><div class="icon">🧩</div><h3>αντιστοίχιση</h3><p>Ταιριάζουμε έννοιες και κανόνες.</p><a class="button orange" href="#match">Ξεκίνα</a></div>
+<div class="card"><div class="icon">📌</div><h3>αφίσα</h3><p>Τελική σύνοψη.</p><a class="button" href="#poster">Προβολή</a></div>
 </div>
+</section>
 
-<div class="card">
-<h2>🔗 Αντιστοίχιση</h2>
-<p>Ταιριάζουμε έννοιες και κανόνες.</p>
-<a class="button" href="antistoixisi.html">Ξεκίνα</a>
+<section id="video1" class="section">
+<h2>🎬 Βίντεο 1</h2>
+<div class="video-box"><div class="video-frame"><iframe src="https://www.youtube.com/embed/lXT6RCIADOQ" allowfullscreen></iframe></div></div>
+</section>
+
+<section id="mindmap" class="section">
+<h2>🧠 Διαδραστικό Infographic</h2>
+<div class="mindmap-wrap">
+<div><img class="infographic-img" src="infographic.png" alt="Ασφαλής πλοήγηση infographic"></div>
+<div class="bubble-grid">
+<div class="bubble" onclick="toggle('r1')"><h3>🔐 Ισχυροί κωδικοί</h3><div id="r1" class="rules"><ul><li>Γράμματα, αριθμοί, σύμβολα.</li><li>Δεν μοιράζομαι τον κωδικό μου.</li><li>Δεν χρησιμοποιώ τον ίδιο κωδικό παντού.</li></ul></div></div>
+<div class="bubble" onclick="toggle('r2')"><h3>👤 Προσωπικά δεδομένα</h3><div id="r2" class="rules"><ul><li>Δεν δίνω διεύθυνση/τηλέφωνο.</li><li>Προσέχω φωτογραφίες και τοποθεσία.</li><li>Σκέφτομαι πριν δημοσιεύσω.</li></ul></div></div>
+<div class="bubble" onclick="toggle('r3')"><h3>💬 Σεβασμός</h3><div id="r3" class="rules"><ul><li>Μιλώ ευγενικά.</li><li>Δεν κάνω cyberbullying.</li><li>Ζητώ βοήθεια.</li></ul></div></div>
+<div class="bubble" onclick="toggle('r4')"><h3>⚠️ Ύποπτο περιεχόμενο</h3><div id="r4" class="rules"><ul><li>Δεν ανοίγω άγνωστα links.</li><li>Δεν κατεβάζω ύποπτα αρχεία.</li><li>Μιλώ σε ενήλικα.</li></ul></div></div>
+<div class="bubble" onclick="toggle('r5')"><h3>⏰ Χρόνος οθόνης</h3><div id="r5" class="rules"><ul><li>Κάνω διαλείμματα.</li><li>Βάζω όρια.</li><li>Η τεχνολογία είναι εργαλείο.</li></ul></div></div>
+<div class="bubble" onclick="toggle('r6')"><h3>🤖 AI Safety</h3><div id="r6" class="rules"><ul><li>Δεν αντιγράφω άκριτα.</li><li>Ελέγχω τις πληροφορίες.</li><li>Δεν δίνω προσωπικά στοιχεία.</li></ul></div></div>
 </div>
-
-<div class="card">
-<h2>🔐 Escape Room</h2>
-<p>Λύνουμε αποστολές και ξεκλειδώνουμε τον κωδικό.</p>
-<a class="button" href="escape-room.html">Άνοιγμα</a>
 </div>
+</section>
 
-</div>
+<section id="video2" class="section">
+<h2>🎥 Βίντεο 2</h2>
+<div class="video-box"><div class="video-frame"><iframe src="https://www.youtube.com/embed/lAap7pun0c4" allowfullscreen></iframe></div></div>
+</section>
 
-<div style="margin-top:40px">
-<h2 style="text-align:center">📌 Αφίσα Ασφαλούς Πλοήγησης</h2>
+<section id="quiz" class="section"><h2>✅ Quiz: Σωστό ή Λάθος</h2><div id="quizArea"></div><h2 id="score" style="text-align:center"></h2></section>
 
-<img class="poster" src="afisa-asfaleia.png">
+<section id="match" class="section">
+<h2>🧩 Αντιστοίχιση</h2>
+<div class="match-card"><p>Διάλεξε τον σωστό κανόνα για κάθε έννοια.</p><div id="matchArea"></div><button onclick="checkMatch()">Έλεγχος απαντήσεων</button><h2 id="matchResult"></h2></div>
+</section>
 
-</div>
+<section id="poster" class="section">
+<h2>📌 Τελική Αφίσα</h2>
+<div class="poster-box"><img class="poster-img" src="afisa-teliki.png" alt="Αφίσα ασφαλούς πλοήγησης"></div>
+</section>
 
-</main>
+<footer>Σκέψη • Σεβασμός • Προστασία • Υπευθυνότητα</footer>
 
-<footer>
-Ασφαλής χρήση διαδικτύου • Σεβασμός • Προστασία • Υπευθυνότητα
-</footer>
-
+<script>
+function toggle(id){const el=document.getElementById(id);el.style.display=el.style.display==='block'?'none':'block';}
+const quizData=[['Μπορώ να μοιράζομαι τον κωδικό μου με φίλους.',false],['Πριν κοινοποιήσω κάτι, ελέγχω αν είναι αληθινό.',true],['Τα προσωπικά δεδομένα πρέπει να προστατεύονται.',true],['Αν κάποιος με ενοχλεί online, το κρατάω μυστικό.',false],['Η τεχνητή νοημοσύνη μπορεί να κάνει λάθη.',true],['Δεν ανοίγω άγνωστα links.',true]];
+let correct=0,answered=0;const quizArea=document.getElementById('quizArea');
+quizData.forEach((item,i)=>{const div=document.createElement('div');div.className='quiz-card';div.innerHTML=`<p><b>${i+1}. ${item[0]}</b></p><button class="green" onclick="answer(${i},true)">Σωστό</button><button class="pink" onclick="answer(${i},false)">Λάθος</button><div class="feedback" id="f${i}"></div>`;quizArea.appendChild(div);});
+function answer(i,val){const f=document.getElementById('f'+i);if(f.textContent)return;answered++;if(val===quizData[i][1]){correct++;f.textContent='Μπράβο! Σωστή απάντηση ✅';f.style.color='#86efac'}else{f.textContent='Όχι ακριβώς. Ξανασκέψου τον κανόνα ❌';f.style.color='#fca5a5'}document.getElementById('score').textContent=`Σκορ: ${correct}/${answered}`;}
+const pairs=[['Ισχυρός κωδικός','Χρησιμοποιώ γράμματα, αριθμούς και σύμβολα.'],['Προσωπικά δεδομένα','Δεν δημοσιεύω διεύθυνση και τηλέφωνο.'],['Cyberbullying','Ζητώ βοήθεια από ενήλικα.'],['Ψεύτικη πληροφορία','Ελέγχω την πηγή πριν κοινοποιήσω.'],['AI Safety','Ελέγχω την απάντηση και δεν αντιγράφω άκριτα.']];
+const options=pairs.map(p=>p[1]).sort(()=>Math.random()-.5);const matchArea=document.getElementById('matchArea');
+pairs.forEach((p,i)=>{const div=document.createElement('div');div.className='match-row';div.innerHTML=`<b>${p[0]}</b><select id="s${i}"><option value="">Διάλεξε...</option>${options.map(o=>`<option>${o}</option>`).join('')}</select>`;matchArea.appendChild(div);});
+function checkMatch(){let score=0;pairs.forEach((p,i)=>{if(document.getElementById('s'+i).value===p[1])score++;});document.getElementById('matchResult').textContent=`Σωστές απαντήσεις: ${score}/${pairs.length}`;}
+</script>
 </body>
 </html>
